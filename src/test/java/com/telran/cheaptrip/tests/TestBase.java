@@ -3,6 +3,8 @@ package com.telran.cheaptrip.tests;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -15,6 +17,18 @@ public class TestBase {
 
     AppiumDriver driver;
     DesiredCapabilities caps;
+
+    Logger logger = LoggerFactory.getLogger(TestBase.class);
+
+    @BeforeMethod
+    public void startTest(){
+        logger.info("Start Test");
+    }
+
+    @AfterMethod
+    public void stopTest(){
+        logger.info("Stop test");
+    }
 
     @BeforeMethod
     public void init() throws MalformedURLException {
